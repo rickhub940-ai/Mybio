@@ -57,13 +57,13 @@ body{
   cursor:pointer;
 }
 
-/* WRAPPER */
+/* WRAPPER (ชิดซ้าย) */
 .wrapper{
   height:100vh;
   display:flex;
-  justify-content:center;
+  justify-content:flex-start;
   align-items:center;
-  padding:0;
+  padding-left:30px;
 }
 
 /* CARD */
@@ -81,11 +81,11 @@ body{
   transform:translateY(-40px);
 }
 
-/* PROFILE */
+/* PROFILE ชิดซ้าย */
 .profile{
   display:flex;
   flex-direction:column;
-  align-items:center;
+  align-items:flex-start;
 }
 
 /* AVATAR */
@@ -122,6 +122,8 @@ body{
   min-width:140px;
   min-height:38px;
   white-space:nowrap;
+
+  align-self:flex-start;
 }
 
 /* cursor */
@@ -220,8 +222,8 @@ body{
   justify-content:center;
   align-items:center;
   border-radius:12px;
-  text-decoration:none;
   font-size:24px;
+  text-decoration:none;
 }
 
 .icons a.instagram{
@@ -269,8 +271,7 @@ body{
     <div class="music-box">
 
       <img class="music-cover"
-        src="https://img.youtube.com/vi/9cA9yYVYoTo/maxresdefault.jpg"
-        onerror="this.src='https://img.youtube.com/vi/9cA9yYVYoTo/hqdefault.jpg';">
+        src="https://img.youtube.com/vi/9cA9yYVYoTo/maxresdefault.jpg">
 
       <div class="music-info">
 
