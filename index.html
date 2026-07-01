@@ -13,6 +13,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <style>
 
+/* RESET */
 *{
   margin:0;
   padding:0;
@@ -23,28 +24,33 @@ body{
   min-height:100vh;
   overflow:hidden;
 
-  /* 🔥 เทาอ่อนแทนขาว */
-  background:linear-gradient(135deg,#dcdcdc,#bfbfbf);
+  /* 🤍 WHITE GLASS BACKGROUND */
+  background:linear-gradient(135deg,#ffffff,#e9e9e9);
   animation:bgMove 10s infinite alternate ease-in-out;
 
   font-family:Arial;
   color:#111;
 }
 
-/* background movement */
 @keyframes bgMove{
   0%{filter:brightness(1);}
-  100%{filter:brightness(1.1);}
+  100%{filter:brightness(1.05);}
 }
 
-/* glow */
+/* glow white glass */
 .bg{
   position:fixed;
   width:600px;
   height:600px;
-  background:radial-gradient(circle,rgba(255,255,255,0.8),rgba(120,120,120,0.2));
-  filter:blur(220px);
-  opacity:0.35;
+
+  background:radial-gradient(circle,
+    rgba(255,255,255,0.95),
+    rgba(200,200,200,0.15)
+  );
+
+  filter:blur(200px);
+  opacity:0.6;
+
   border-radius:50%;
   animation:floatBG 12s infinite alternate ease-in-out;
   z-index:-1;
@@ -60,26 +66,22 @@ body{
   position:fixed;
   width:100%;
   height:100%;
-  background:rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.2);
   backdrop-filter:blur(30px);
   display:flex;
   justify-content:center;
   align-items:center;
   z-index:10;
   transition:0.6s;
-  animation:fadeIn 1s ease;
-}
-
-@keyframes fadeIn{
-  from{opacity:0;}
-  to{opacity:1;}
 }
 
 .btn{
   padding:14px 40px;
   border-radius:20px;
-  border:1px solid rgba(255,255,255,0.25);
-  background:rgba(255,255,255,0.2);
+
+  border:1px solid rgba(255,255,255,0.7);
+  background:rgba(255,255,255,0.4);
+
   cursor:pointer;
   transition:.3s;
   backdrop-filter:blur(15px);
@@ -102,38 +104,32 @@ body{
   min-height:100vh;
   display:flex;
   justify-content:center;
-  align-items:center;
+  align-items:flex-start;
+  padding-top:60px;
 }
 
-/* card */
+/* 🤍 GLASS CARD */
 .card{
   width:340px;
   padding:25px;
 
-  background:rgba(255,255,255,0.15);
-  border:1px solid rgba(255,255,255,0.25);
+  background:rgba(255,255,255,0.35);
+  border:1px solid rgba(255,255,255,0.6);
 
   border-radius:25px;
 
   backdrop-filter:blur(40px);
   -webkit-backdrop-filter:blur(40px);
 
-  box-shadow:0 25px 70px rgba(0,0,0,0.1);
+  box-shadow:0 25px 70px rgba(0,0,0,0.08);
 
   text-align:center;
-
   animation:cardIn 1s ease;
 }
 
 @keyframes cardIn{
-  from{
-    opacity:0;
-    transform:translateY(40px) scale(0.9);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0) scale(1);
-  }
+  from{opacity:0; transform:translateY(40px) scale(0.9);}
+  to{opacity:1; transform:translateY(0) scale(1);}
 }
 
 /* avatar */
@@ -141,10 +137,14 @@ body{
   width:110px;
   height:110px;
   border-radius:50%;
-  border:2px solid rgba(255,255,255,0.6);
-  margin-bottom:15px;
 
+  border:2px solid rgba(255,255,255,0.8);
+
+  margin-bottom:15px;
   animation:float 3s infinite ease-in-out;
+
+  display:block;
+  margin:auto;
 }
 
 @keyframes float{
@@ -152,25 +152,21 @@ body{
   50%{transform:translateY(-8px);}
 }
 
-h1{
-  font-family:'Press Start 2P', cursive;
-  font-size:16px;
-  margin-bottom:10px;
-
-  animation:fadeUp 1.2s ease;
+/* typing name */
+#typing::after{
+  content:"|";
+  animation:blink 0.7s infinite;
 }
 
+@keyframes blink{
+  50%{opacity:0;}
+}
+
+/* text */
 p{
   color:#444;
   font-size:12px;
   margin-bottom:15px;
-
-  animation:fadeUp 1.4s ease;
-}
-
-@keyframes fadeUp{
-  from{opacity:0; transform:translateY(10px);}
-  to{opacity:1; transform:translateY(0);}
 }
 
 /* icons */
@@ -179,8 +175,6 @@ p{
   justify-content:center;
   gap:18px;
   margin-top:20px;
-
-  animation:fadeUp 1.6s ease;
 }
 
 .icons a{
@@ -193,8 +187,8 @@ p{
 
   border-radius:16px;
 
-  background:rgba(255,255,255,0.2);
-  border:1px solid rgba(255,255,255,0.25);
+  background:rgba(255,255,255,0.5);
+  border:1px solid rgba(255,255,255,0.7);
 
   backdrop-filter:blur(20px);
 
@@ -203,19 +197,7 @@ p{
 
   transition:.3s;
 
-  animation:floatIcon 3s infinite ease-in-out;
-}
-
-.icons a:nth-child(2){
-  animation-delay:0.2s;
-}
-.icons a:nth-child(3){
-  animation-delay:0.4s;
-}
-
-@keyframes floatIcon{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-6px);}
+  text-decoration:none;
 }
 
 .icons a:hover{
@@ -245,10 +227,9 @@ p{
 
     <img class="avatar" src="https://i.imgur.com/2DhmtJ4.jpeg">
 
-    <h1>BOOM_B</h1>
+    <h1 id="typing"></h1>
     <p>Developer • Designer • Creator</p>
 
-    <!-- 3 ICONS -->
     <div class="icons">
       <a href="#"><i class="fa-brands fa-instagram"></i></a>
       <a href="#"><i class="fa-brands fa-discord"></i></a>
@@ -261,8 +242,35 @@ p{
 
 <script>
 
-function enterSite(){
+const text = "BOOM_B";
+let index = 0;
+let isDeleting = false;
 
+function typeEffect(){
+  const el = document.getElementById("typing");
+
+  if(!isDeleting){
+    el.textContent = text.substring(0, index + 1);
+    index++;
+
+    if(index === text.length){
+      isDeleting = true;
+      setTimeout(typeEffect, 1000);
+      return;
+    }
+  }else{
+    el.textContent = text.substring(0, index - 1);
+    index--;
+
+    if(index === 0){
+      isDeleting = false;
+    }
+  }
+
+  setTimeout(typeEffect, isDeleting ? 80 : 150);
+}
+
+function enterSite(){
   const overlay = document.getElementById("overlay");
   const music = document.getElementById("music");
   const card = document.getElementById("card");
@@ -274,6 +282,7 @@ function enterSite(){
   setTimeout(()=>{
     overlay.style.display="none";
     card.style.display="block";
+    typeEffect();
   },600);
 }
 
