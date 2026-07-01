@@ -57,13 +57,13 @@ body{
   cursor:pointer;
 }
 
-/* WRAPPER (ชิดซ้าย) */
+/* WRAPPER (กลางจอ) */
 .wrapper{
   height:100vh;
   display:flex;
-  justify-content:flex-start;
+  justify-content:center;
   align-items:center;
-  padding-left:30px;
+  padding:0;
 }
 
 /* CARD */
@@ -81,11 +81,11 @@ body{
   transform:translateY(-40px);
 }
 
-/* PROFILE ชิดซ้าย */
+/* PROFILE */
 .profile{
   display:flex;
   flex-direction:column;
-  align-items:flex-start;
+  align-items:center;
 }
 
 /* AVATAR */
@@ -122,8 +122,6 @@ body{
   min-width:140px;
   min-height:38px;
   white-space:nowrap;
-
-  align-self:flex-start;
 }
 
 /* cursor */
@@ -311,6 +309,9 @@ function enterSite(){
   document.getElementById("overlay").style.display="none";
   document.getElementById("card").style.display="flex";
   typeLoop();
+
+  music.play().catch(()=>{});
+  playBtn.innerHTML='<i class="fa-solid fa-pause"></i>';
 }
 
 function togglePlay(){
@@ -368,6 +369,7 @@ function typeLoop(){
   loop();
 }
 
+/* หยุดเพลงเมื่อออกจากเว็บ */
 window.addEventListener("beforeunload",()=>{
   music.pause();
   music.currentTime=0;
