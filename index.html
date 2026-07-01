@@ -1,1 +1,180 @@
 
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BOOM_B</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial,sans-serif;
+    }
+
+    body{
+      background:black;
+      height:100vh;
+      overflow:hidden;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      color:white;
+    }
+
+    /* แสงพื้นหลัง */
+    .glow{
+      position:absolute;
+      width:500px;
+      height:500px;
+      background:white;
+      opacity:.08;
+      filter:blur(180px);
+      border-radius:50%;
+    }
+
+    /* หน้าเปิด */
+    .overlay{
+      position:absolute;
+      width:100%;
+      height:100%;
+      background:black;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      z-index:10;
+      transition:1s;
+    }
+
+    .enter-btn{
+      padding:18px 50px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,0.15);
+      background:rgba(255,255,255,0.05);
+      color:white;
+      font-size:18px;
+      cursor:pointer;
+      transition:.3s;
+      letter-spacing:2px;
+    }
+
+    .enter-btn:hover{
+      transform:scale(1.08);
+      background:white;
+      color:black;
+      box-shadow:0 0 30px white;
+    }
+
+    /* เนื้อหา */
+    .content{
+      opacity:0;
+      transition:1s;
+      text-align:center;
+    }
+
+    .show{
+      opacity:1;
+    }
+
+    .avatar{
+      width:120px;
+      height:120px;
+      border-radius:50%;
+      object-fit:cover;
+      margin-bottom:20px;
+      border:3px solid white;
+      box-shadow:0 0 25px rgba(255,255,255,.4);
+    }
+
+    h1{
+      font-size:55px;
+      letter-spacing:5px;
+    }
+
+    p{
+      color:#999;
+      margin-top:10px;
+      margin-bottom:25px;
+    }
+
+    .links a{
+      display:block;
+      width:250px;
+      margin:12px auto;
+      padding:14px;
+      border-radius:14px;
+      text-decoration:none;
+      color:white;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+      transition:.3s;
+    }
+
+    .links a:hover{
+      background:white;
+      color:black;
+      transform:scale(1.05);
+      box-shadow:0 0 20px white;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="glow"></div>
+
+<!-- เพลง -->
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mp3">
+</audio>
+
+<!-- หน้าเปิด -->
+<div class="overlay" id="overlay">
+  <button class="enter-btn" onclick="enterSite()">
+    CLICK TO ENTER
+  </button>
+</div>
+
+<!-- หน้า Bio -->
+<div class="content" id="content">
+
+  <img class="avatar"
+  src="https://i.imgur.com/2DhmtJ4.jpeg">
+
+  <h1>BOOM_B</h1>
+
+  <p>Developer • Designer • Creator</p>
+
+  <div class="links">
+    <a href="#">Instagram</a>
+    <a href="#">TikTok</a>
+    <a href="#">YouTube</a>
+    <a href="#">Discord</a>
+  </div>
+
+</div>
+
+<script>
+
+function enterSite(){
+
+  // เล่นเพลง
+  document.getElementById("music").play();
+
+  // ซ่อนหน้าเปิด
+  document.getElementById("overlay").style.opacity = "0";
+
+  setTimeout(() => {
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("content").classList.add("show");
+  },1000);
+
+}
+
+</script>
+
+</body>
+  </html>
